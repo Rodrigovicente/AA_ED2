@@ -33,11 +33,11 @@ int emp_sizeofEmployee() {
 
 int emp_readEmployee(Employee * employee, FILE *fileName){
 	return (fread(&employee->code, sizeof(int), 1, fileName) &&
-	fread(employee->name, sizeof(char), sizeof(employee->name), fileName) &&
-	fread(&employee->age, sizeof(int), 1, fileName) &&
-	fread(&employee->wage, sizeof(float), 1, fileName) &&
-	fread(&employee->status, sizeof(int), 1, fileName) &&
-	fread(&employee->pointer, sizeof(int), 1, fileName));
+			fread(employee->name, sizeof(char), sizeof(employee->name), fileName) &&
+			fread(&employee->age, sizeof(int), 1, fileName) &&
+			fread(&employee->wage, sizeof(float), 1, fileName) &&
+			fread(&employee->status, sizeof(int), 1, fileName) &&
+			fread(&employee->pointer, sizeof(int), 1, fileName));
 
 }
 
@@ -218,7 +218,6 @@ void emp_createHash(int size, FILE *hashfile){
 	for(int i=0; i< HASH_SIZE;i++){
 		emp_writeEmployee(emp, hashfile, i, emp_sizeofEmployee());
 	}
-	fclose(hashfile);
 }
 
 
